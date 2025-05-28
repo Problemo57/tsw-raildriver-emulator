@@ -1,1 +1,1 @@
-x86_64-w64-mingw32-gcc -shared library.c library.def -o PieHid.dll
+x86_64-w64-mingw32-gcc -shared library.c library.def -o PieHid64.dll

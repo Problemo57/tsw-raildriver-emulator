@@ -44,7 +44,7 @@ int GetReadLength(long handle);
 int SetDataCallback(long handle, PHIDDataEvent pDataEvent);
 int SetErrorCallback(long handle, PHIDErrorEvent pErrorCall);
 int GetWriteLength(long handle);
-void DongleCheck2(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, uint param_8, uint *param_9, uint *param_10, uint *param_11, uint *param_12);
+void DongleCheck2(int param_1, int param_2, int param_3, int param_4, int param_5, int param_6, int param_7, uint param_8, const uint *param_9, const uint *param_10, const uint *param_11, const uint *param_12);
 int SendLEDSausage(int param_1);
 void CloseInterface(long handle);
 void CleanupInterface(long handle);
