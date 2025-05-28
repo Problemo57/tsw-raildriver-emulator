@@ -18,7 +18,7 @@ This project emulates the RailDriver controller device for use with Train Sim Wo
    ```
 
 2. **Replace DLL:**  
-   Copy the emulator DLL from this project to the same location, replacing the original `PieHid64.dll`.
+   Copy the emulator DLL from the [Releases](https://github.com/Problemo57/tsw-raildriver-emulator/releases) of this project to the same location, replacing the original `PieHid64.dll`.
 
 3. **Run the game:**  
    Start Train Sim World. The emulator will now be active.
