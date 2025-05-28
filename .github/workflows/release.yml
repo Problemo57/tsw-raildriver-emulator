@@ -1,0 +1,50 @@
+name: Build and Release DLL
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install MinGW-w64 (x86_64-w64-mingw32-gcc)
+        run: sudo apt-get update && sudo apt-get install -y mingw-w64
+
+      - name: Compile project
+        run: sh compile.sh
+
+      - name: Check for DLL presence
+        id: check_dll
+        run: |
+          if [ -f "PieHid64.dll" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create tag
+        id: create_tag
+        run: |
+          TAG="auto-v$(date +'%Y%m%d-%H%M%S')"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag $TAG
+          git push origin $TAG
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        if: steps.check_dll.outputs.exists == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.create_tag.outputs.tag }}
+          name: Build ${{ steps.create_tag.outputs.tag }}
+          files: PieHid64.dll
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
