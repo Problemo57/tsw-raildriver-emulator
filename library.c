@@ -24,6 +24,9 @@ void logtext(char* text) {
 }
 
 unsigned long data_thread(void* arg) {
+    FILE* file = fopen(RAIL_DRIVER_INPUT_FILE, "w");
+    fclose(file);
+
     char data[16];
     while (data_callback != NULL) {
         FILE* file = fopen(RAIL_DRIVER_INPUT_FILE, "r");
