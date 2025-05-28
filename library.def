@@ -1,0 +1,23 @@
+EXPORTS
+    SuppressDuplicateReports      @48
+    DisableDataCallback           @49
+    IsDataCallbackDisabled        @50
+    GetSuppressDuplicateReports   @51
+    GetErrorString                @47
+    GetXKeyVersion                @28
+    ReadLast                      @12
+    ReadData                      @11
+    BlockingReadData              @44
+    WriteData                     @14
+    FastWrite                     @22
+    ClearBuffer                   @8
+    GetReadLength                 @17
+    SetDataCallback               @24
+    SetErrorCallback              @26
+    GetWriteLength                @18
+    DongleCheck2                  @46
+    SendLEDSausage                @34
+    CloseInterface                @9
+    CleanupInterface              @20
+    EnumeratePIE                  @10
+    SetupInterfaceEx              @42
